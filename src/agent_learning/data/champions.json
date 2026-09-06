@@ -1,0 +1,335 @@
+{
+    "yasuo":{
+        "name_cn": "亚索",
+        "name_i8n": "Yasuo",
+        "title": "疾风剑豪",
+        "region":"艾欧尼亚",
+        "summary": "亚索是一个来自艾欧尼亚的流浪剑客，他以风为伴，凭借着无与伦比的剑术和敏捷的身手，在战场上如同风一般迅捷。他的技能可以操控风的力量，使他在战斗中游刃有余。",
+        "key_events": [
+            {
+                "event": "亚索的父亲被杀",
+                "description": "亚索的父亲是一位著名的剑术大师，他在一次战斗中被敌人杀害，这让亚索立志要成为一名更强的剑客。"
+            },
+            {
+                "event": "亚索被误解",
+                "description": "由于一场误会，亚索被指控为叛徒，他被迫离开家乡，开始了流浪生涯。"
+            },
+            {
+                "event": "亚索的复仇",
+                "description": "在经历了无数的磨难后，亚索终于找到了杀害父亲的凶手，并为父亲报仇雪恨。"
+            }
+        ],
+        "related_characters": [
+            {
+                "name": "易",
+                "relationship": "朋友",
+                "description": "易是亚索的好友，他们在战斗中互相扶持，共同成长。"
+            },
+            {
+                "name": "阿狸",
+                "relationship": "盟友",
+                "description": "阿狸是亚索的盟友，他们在战斗中并肩作战，互相支持。"
+            }
+        ],
+        "source_url": "https://lol.fandom.com/wiki/Yasuo"
+    },
+    "katarina": {
+        "name_cn": "卡特琳娜",
+        "name_i8n": "Katarina",
+        "title": "不祥之刃",
+        "region": "诺克萨斯",
+        "summary": "卡特琳娜是杜·克卡奥将军之女，也是诺克萨斯最危险的刺客之一。年轻时，她曾因急于证明自己而擅自改变任务目标，并为此付出代价；这次失败使她逐渐学会把使命置于个人荣誉之上。",
+        "key_events": [
+            {
+                "event": "接受家族训练",
+                "description": "卡特琳娜自幼在杜·克卡奥家族接受严苛训练，以成为服务诺克萨斯的精锐刺客。"
+            },
+            {
+                "event": "擅自改变任务",
+                "description": "她在早期任务中追逐更有名望的目标，却导致原定行动失败，也让同伴为她的野心付出代价。"
+            },
+            {
+                "event": "成为顶尖刺客",
+                "description": "经历失败与磨炼后，她以果断的行动和高超的匕首技巧赢得了令人畏惧的名声。"
+            }
+        ],
+        "related_characters": [
+            {
+                "name": "卡西奥佩娅",
+                "relationship": "妹妹",
+                "description": "两人同为杜·克卡奥家族成员，却走上了截然不同的道路。"
+            },
+            {
+                "name": "泰隆",
+                "relationship": "家族同僚与竞争者",
+                "description": "泰隆受杜·克卡奥将军赏识，与卡特琳娜同属将军麾下的致命力量。"
+            }
+        ],
+        "source_url": "https://universe.leagueoflegends.com/en_US/champion/katarina/"
+    },
+    "kennen": {
+        "name_cn": "凯南",
+        "name_i8n": "Kennen",
+        "title": "狂暴之心",
+        "region": "艾欧尼亚",
+        "summary": "凯南是均衡教派中唯一的约德尔人。他行动迅捷，能够驾驭雷电，并与慎等人一起守护艾欧尼亚物质领域与精神领域之间的平衡。",
+        "key_events": [
+            {
+                "event": "加入均衡教派",
+                "description": "凯南离开约德尔人的生活圈，加入了以维持两界平衡为使命的均衡教派。"
+            },
+            {
+                "event": "成为狂暴之心",
+                "description": "他凭借惊人的速度、雷电能力与坚定意志，承担起教派中追击威胁的职责。"
+            },
+            {
+                "event": "巡守艾欧尼亚",
+                "description": "凯南穿行于艾欧尼亚各地，帮助均衡教派应对破坏精神与物质秩序的力量。"
+            }
+        ],
+        "related_characters": [
+            {
+                "name": "慎",
+                "relationship": "领袖与战友",
+                "description": "慎领导均衡教派，凯南与他共同维护两个领域的平衡。"
+            },
+            {
+                "name": "阿卡丽",
+                "relationship": "昔日同伴",
+                "description": "阿卡丽曾是均衡教派成员，与凯南有共同执行教派使命的经历。"
+            }
+        ],
+        "source_url": "https://universe.leagueoflegends.com/en_US/champion/kennen/"
+    },
+    "lulu": {
+        "name_cn": "璐璐",
+        "name_i8n": "Lulu",
+        "title": "仙灵女巫",
+        "region": "班德尔城",
+        "summary": "璐璐是一位拥有强大魔法的约德尔女巫。她和仙灵伙伴皮克斯一起旅行，能让事物发生奇妙变形，也常把幻想与现实混合在一起。",
+        "key_events": [
+            {
+                "event": "遇见皮克斯",
+                "description": "璐璐追随神秘仙灵皮克斯，踏入了一个充满原始魔法的奇异世界。"
+            },
+            {
+                "event": "漫游奇境",
+                "description": "她在仙灵世界中度过了一段难以用普通时间衡量的旅程，并学会以魔法重塑周围事物。"
+            },
+            {
+                "event": "游历符文之地",
+                "description": "回到外界后，璐璐与皮克斯继续四处旅行，把惊奇、混乱与善意带给遇到的人。"
+            }
+        ],
+        "related_characters": [
+            {
+                "name": "皮克斯",
+                "relationship": "仙灵伙伴",
+                "description": "皮克斯是璐璐最亲密的旅伴，也是引领她接触仙灵魔法的重要伙伴。"
+            }
+        ],
+        "source_url": "https://universe.leagueoflegends.com/en_US/champion/lulu/"
+    },
+    "nautilus": {
+        "name_cn": "诺提勒斯",
+        "name_i8n": "Nautilus",
+        "title": "深海泰坦",
+        "region": "比尔吉沃特",
+        "summary": "诺提勒斯是游荡在比尔吉沃特近海的重甲巨人。他曾在一次深海任务中遭到背叛，从海底归来后便以巨锚惩罚那些拒绝向海洋缴纳什一税的人。",
+        "key_events": [
+            {
+                "event": "执行深海任务",
+                "description": "他曾是潜入危险海域的水手，负责探索普通人难以到达的海底。"
+            },
+            {
+                "event": "遭到船员背叛",
+                "description": "在一次下潜中，他被留在深海并被黑暗力量吞没，最终与沉重潜水装甲融为一体。"
+            },
+            {
+                "event": "征收海洋什一税",
+                "description": "归来后的诺提勒斯在海上追索欠下贡品的人，用巨锚执行他认定的海洋法则。"
+            }
+        ],
+        "related_characters": [],
+        "source_url": "https://universe.leagueoflegends.com/en_US/champion/nautilus/"
+    },
+    "sion": {
+        "name_cn": "赛恩",
+        "name_i8n": "Sion",
+        "title": "亡灵战神",
+        "region": "诺克萨斯",
+        "summary": "赛恩生前是诺克萨斯最著名的战争英雄之一，曾在临死前击杀德玛西亚国王。后来他被血魔法复活，失去大部分自我，成为只有在战斗中才会短暂清醒的攻城武器。",
+        "key_events": [
+            {
+                "event": "击杀嘉文一世",
+                "description": "赛恩在与德玛西亚的战争中与国王嘉文一世同归于尽，并因此成为诺克萨斯的传奇。"
+            },
+            {
+                "event": "被血魔法复活",
+                "description": "诺克萨斯的术士以禁忌手段让赛恩重返战场，但复生也严重损毁了他的记忆与人格。"
+            },
+            {
+                "event": "沦为战争兵器",
+                "description": "他被一次次投入战场，在无尽杀戮中为诺克萨斯摧毁敌人的防线。"
+            }
+        ],
+        "related_characters": [
+            {
+                "name": "嘉文一世",
+                "relationship": "宿敌",
+                "description": "这位德玛西亚国王在与赛恩的最后一战中被杀，两人也一同成为各自国家的历史象征。"
+            },
+            {
+                "name": "斯维因",
+                "relationship": "诺克萨斯统帅",
+                "description": "在斯维因掌权的诺克萨斯，赛恩仍被视为需要谨慎投放的强大战争武器。"
+            }
+        ],
+        "source_url": "https://universe.leagueoflegends.com/en_US/champion/sion/"
+    },
+    "taric": {
+        "name_cn": "塔里克",
+        "name_i8n": "Taric",
+        "title": "瓦洛兰之盾",
+        "region": "巨神峰（出生于德玛西亚）",
+        "summary": "塔里克曾是德玛西亚军人，因失职而被放逐去攀登巨神峰。在完成几乎不可能的登顶之旅后，他成为守护星灵的化身，肩负保护符文之地生命与美好事物的使命。",
+        "key_events": [
+            {
+                "event": "服役于德玛西亚",
+                "description": "塔里克曾在德玛西亚军队中任职，以勇气和对美好事物的热爱闻名。"
+            },
+            {
+                "event": "被判登上巨神峰",
+                "description": "一次严重失职使他遭到放逐，他只能通过攀登巨神峰寻找救赎。"
+            },
+            {
+                "event": "成为守护星灵",
+                "description": "塔里克成功登顶并获得星灵力量，从此以瓦洛兰之盾的身份守护世界。"
+            }
+        ],
+        "related_characters": [
+            {
+                "name": "盖伦",
+                "relationship": "昔日同袍",
+                "description": "两人都曾效力于德玛西亚军队，代表着不同形式的责任与守护。"
+            }
+        ],
+        "source_url": "https://universe.leagueoflegends.com/en_US/champion/taric/"
+    },
+    "veigar": {
+        "name_cn": "维迦",
+        "name_i8n": "Veigar",
+        "title": "邪恶小法师",
+        "region": "班德尔城",
+        "summary": "维迦是钻研黑暗与天界魔法的约德尔法师。他曾被莫德凯撒囚禁并折磨，重获自由后决心成为世人畏惧的大恶人，但他的行动常常阴差阳错地帮到别人。",
+        "key_events": [
+            {
+                "event": "研习天界魔法",
+                "description": "维迦对外界魔法充满好奇，并从人类法师那里学习操纵星界力量的方法。"
+            },
+            {
+                "event": "遭莫德凯撒囚禁",
+                "description": "莫德凯撒将他长期关押，逼迫他使用魔法，并以残酷手段扭曲他的心智。"
+            },
+            {
+                "event": "追求邪恶名声",
+                "description": "获得自由后，维迦努力证明自己足够邪恶，却经常因原则和意外产生相反效果。"
+            }
+        ],
+        "related_characters": [
+            {
+                "name": "莫德凯撒",
+                "relationship": "昔日囚禁者",
+                "description": "莫德凯撒的长期奴役给维迦留下了深刻创伤，也改变了他对力量与邪恶的理解。"
+            }
+        ],
+        "source_url": "https://universe.leagueoflegends.com/en_US/champion/veigar/"
+    },
+    "zac": {
+        "name_cn": "扎克",
+        "name_i8n": "Zac",
+        "title": "生化魔人",
+        "region": "祖安",
+        "summary": "扎克诞生于祖安有毒废水中的化学反应，是一种拥有意识和情感的弹性生命。被善良的科学家夫妇抚养后，他选择利用可变形的身体帮助无助者，并修复祖安遭到破坏的区域。",
+        "key_events": [
+            {
+                "event": "诞生于祖安地沟",
+                "description": "工业污染与炼金废料在地下汇聚，最终孕育出能够思考和感受的特殊生命。"
+            },
+            {
+                "event": "被科学家夫妇收养",
+                "description": "发现他的研究者没有把他当作武器，而是将他当作孩子照顾并教会他善良。"
+            },
+            {
+                "event": "守护祖安居民",
+                "description": "长大后的扎克运用弹性身体穿行城市，帮助受欺压的人并对抗威胁。"
+            }
+        ],
+        "related_characters": [
+            {
+                "name": "扎克的养父母",
+                "relationship": "养育者",
+                "description": "两位科学家给予扎克家庭般的关爱，是他形成善良人格的关键。"
+            }
+        ],
+        "source_url": "https://universe.leagueoflegends.com/en_US/champion/zac/"
+    },
+    "zilean": {
+        "name_cn": "基兰",
+        "name_i8n": "Zilean",
+        "title": "时光守护者",
+        "region": "艾卡西亚",
+        "summary": "基兰是来自艾卡西亚的强大法师。虚空毁灭故乡时，他借助时间魔法保存了一部分幸存者；此后他游走于不同时间线，寻找挽救艾卡西亚和阻止虚空的方法。",
+        "key_events": [
+            {
+                "event": "预见虚空灾难",
+                "description": "基兰察觉艾卡西亚反抗恕瑞玛所召来的力量将造成无法控制的毁灭。"
+            },
+            {
+                "event": "保存钟塔与幸存者",
+                "description": "灾难发生时，他用时间魔法让所在区域脱离正常时间，保护其中的人免遭虚空吞噬。"
+            },
+            {
+                "event": "穿行不同时间线",
+                "description": "基兰不断观察过去与未来，试图找到逆转故乡毁灭并击败虚空的可能道路。"
+            }
+        ],
+        "related_characters": [
+            {
+                "name": "贾克斯",
+                "relationship": "艾卡西亚同乡",
+                "description": "两人都经历了艾卡西亚的毁灭，并以不同方式寻找对抗虚空的希望。"
+            }
+        ],
+        "source_url": "https://universe.leagueoflegends.com/en_US/champion/zilean/"
+    },
+    "zoe": {
+        "name_cn": "佐伊",
+        "name_i8n": "Zoe",
+        "title": "暮光星灵",
+        "region": "巨神峰",
+        "summary": "佐伊是暮光星灵的化身，也是宇宙变化的信使。她能够开启传送门、扭曲现实，并以孩子般的好奇心穿梭于不同世界；她的出现往往预示着影响巨大的变化。",
+        "key_events": [
+            {
+                "event": "被暮光星灵选中",
+                "description": "年幼的佐伊凭借自由而顽皮的天性得到星灵青睐，并迅速获得超越凡人的力量。"
+            },
+            {
+                "event": "遨游宇宙",
+                "description": "她利用传送门穿梭于遥远世界，在漫长岁月中几乎没有改变外貌与性格。"
+            },
+            {
+                "event": "重返符文之地",
+                "description": "佐伊作为变化的先兆回到符文之地，她看似随意的举动可能牵动重大的宇宙事件。"
+            }
+        ],
+        "related_characters": [
+            {
+                "name": "奥瑞利安·索尔",
+                "relationship": "星界相识",
+                "description": "佐伊能够接触这位铸星龙王，并以自己独特而随性的方式与他相处。"
+            }
+        ],
+        "source_url": "https://universe.leagueoflegends.com/en_US/champion/zoe/"
+    }
+}

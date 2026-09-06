@@ -1,0 +1,114 @@
+{
+    "艾欧尼亚": {
+        "champion_count": 2,
+        "champions": [
+            {
+                "champion_id": "yasuo",
+                "name_cn": "亚索",
+                "name_i8n": "Yasuo",
+                "title": "疾风剑豪",
+                "region": "艾欧尼亚"
+            },
+            {
+                "champion_id": "kennen",
+                "name_cn": "凯南",
+                "name_i8n": "Kennen",
+                "title": "狂暴之心",
+                "region": "艾欧尼亚"
+            }
+        ]
+    },
+    "诺克萨斯": {
+        "champion_count": 2,
+        "champions": [
+            {
+                "champion_id": "katarina",
+                "name_cn": "卡特琳娜",
+                "name_i8n": "Katarina",
+                "title": "不祥之刃",
+                "region": "诺克萨斯"
+            },
+            {
+                "champion_id": "sion",
+                "name_cn": "赛恩",
+                "name_i8n": "Sion",
+                "title": "亡灵战神",
+                "region": "诺克萨斯"
+            }
+        ]
+    },
+    "班德尔城": {
+        "champion_count": 2,
+        "champions": [
+            {
+                "champion_id": "lulu",
+                "name_cn": "璐璐",
+                "name_i8n": "Lulu",
+                "title": "仙灵女巫",
+                "region": "班德尔城"
+            },
+            {
+                "champion_id": "veigar",
+                "name_cn": "维迦",
+                "name_i8n": "Veigar",
+                "title": "邪恶小法师",
+                "region": "班德尔城"
+            }
+        ]
+    },
+    "比尔吉沃特": {
+        "champion_count": 1,
+        "champions": [
+            {
+                "champion_id": "nautilus",
+                "name_cn": "诺提勒斯",
+                "name_i8n": "Nautilus",
+                "title": "深海泰坦",
+                "region": "比尔吉沃特"
+            }
+        ]
+    },
+    "巨神峰": {
+        "champion_count": 2,
+        "champions": [
+            {
+                "champion_id": "taric",
+                "name_cn": "塔里克",
+                "name_i8n": "Taric",
+                "title": "瓦洛兰之盾",
+                "region": "巨神峰（出生于德玛西亚）"
+            },
+            {
+                "champion_id": "zoe",
+                "name_cn": "佐伊",
+                "name_i8n": "Zoe",
+                "title": "暮光星灵",
+                "region": "巨神峰"
+            }
+        ]
+    },
+    "祖安": {
+        "champion_count": 1,
+        "champions": [
+            {
+                "champion_id": "zac",
+                "name_cn": "扎克",
+                "name_i8n": "Zac",
+                "title": "生化魔人",
+                "region": "祖安"
+            }
+        ]
+    },
+    "艾卡西亚": {
+        "champion_count": 1,
+        "champions": [
+            {
+                "champion_id": "zilean",
+                "name_cn": "基兰",
+                "name_i8n": "Zilean",
+                "title": "时光守护者",
+                "region": "艾卡西亚"
+            }
+        ]
+    }
+}
