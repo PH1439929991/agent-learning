@@ -3,8 +3,8 @@ import json
 from pathlib import Path
 
 
-DATA_file_path_champions = Path(__file__).parent / "data" / "champions.json"
-DATA_file_path_regions = Path(__file__).parent / "data" / "regions.json"
+DATA_file_path_champions = Path(__file__).resolve().parent.parent / "data" / "champions.json"
+DATA_file_path_regions = Path(__file__).resolve().parent.parent / "data" / "regions.json"
 
 
 def get_champion_info(champion_name: str) -> dict:

@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 
-ENV_PATH = Path(__file__).resolve().parent / ".env"
+ENV_PATH = Path(__file__).resolve().parent.parent / ".env"
 load_dotenv(ENV_PATH)
 
 

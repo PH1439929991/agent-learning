@@ -7,7 +7,7 @@
 4. 始终保留 system 消息和当前用户的最新问题。
 
 运行方式：
-    python src/agent_learning/context_window_management.py
+    PYTHONPATH=src .venv/bin/python -m agent_learning.module_02_context.context_trimming
 
 完成 TODO 前，程序会抛出 NotImplementedError。
 """

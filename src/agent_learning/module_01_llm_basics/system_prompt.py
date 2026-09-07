@@ -1,12 +1,12 @@
 """System Prompt 学习实验室。
 
 运行方式：
-    python src/agent_learning/system_prompt_lab.py
+    PYTHONPATH=src .venv/bin/python -m agent_learning.module_01_llm_basics.system_prompt
 
 建议使用同一个问题依次切换不同 Prompt，比较回答的内容、结构和语气。
 """
 
-from LLM_client import LLMClient
+from agent_learning.common.llm_client import LLMClient
 
 
 SYSTEM_PROMPTS = {

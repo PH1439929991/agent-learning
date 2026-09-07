@@ -8,7 +8,7 @@
 5. 连续对话多轮，观察 prompt_tokens 如何增长。
 
 运行方式：
-    python src/agent_learning/usage_metrics_exercise.py
+    PYTHONPATH=src .venv/bin/python -m agent_learning.module_01_llm_basics.usage_metrics
 
 这个文件是练习骨架，完成 TODO 前会主动抛出 NotImplementedError。
 """
@@ -16,7 +16,7 @@
 from dataclasses import dataclass
 from time import perf_counter
 
-from LLM_client import LLMClient
+from agent_learning.common.llm_client import LLMClient
 
 
 SYSTEM_PROMPT = """你是一位耐心的 Python 编程导师。

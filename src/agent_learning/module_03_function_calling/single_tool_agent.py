@@ -1,7 +1,7 @@
 """英雄背景查询 Agent：Function Calling 练习框架。
 
 运行方式：
-    python src/agent_learning/champion_agent.py
+    PYTHONPATH=src .venv/bin/python -m agent_learning.module_03_function_calling.single_tool_agent
 
 本练习需要完成标记为 TODO 的三处核心代码。
 """
@@ -9,8 +9,8 @@
 import json
 from typing import Any
 
-from LLM_client import LLMClient
-from champions_tools import get_champion_info
+from agent_learning.common.llm_client import LLMClient
+from agent_learning.module_03_function_calling.champion_tools import get_champion_info
 
 
 # TODO 1：编写 System prompt。

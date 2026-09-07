@@ -1,7 +1,7 @@
 from math import ceil
 
-from LLM_client import LLMClient
-from context_window_management import ContextWindowExceeded
+from agent_learning.common.llm_client import LLMClient
+from agent_learning.module_02_context.context_trimming import ContextWindowExceeded
 
 
 def calculate_tokens(messages: list[dict[str, str]]) -> int:

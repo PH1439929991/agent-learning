@@ -1,10 +1,10 @@
 """对比模型的非流式输出和流式输出。
 
 运行方式：
-    python src/agent_learning/streaming_comparison.py
+    PYTHONPATH=src .venv/bin/python -m agent_learning.module_01_llm_basics.streaming
 
 也可以传入自己的问题：
-    python src/agent_learning/streaming_comparison.py "请解释 Python 生成器"
+    PYTHONPATH=src .venv/bin/python -m agent_learning.module_01_llm_basics.streaming "请解释 Python 生成器"
 
 注意：一次完整运行会向模型发送两次请求，分别用于非流式和流式测试。
 """
@@ -12,7 +12,7 @@
 import argparse
 from time import perf_counter
 
-from LLM_client import LLMClient
+from agent_learning.common.llm_client import LLMClient
 
 
 DEFAULT_PROMPT = """请用 8 个简短步骤解释：

@@ -9,7 +9,7 @@
 6. 捕获并阅读 ValidationError。
 
 运行方式：
-    .venv/bin/python src/agent_learning/pydantic_tool_validation_exercise.py
+    PYTHONPATH=src .venv/bin/python -m agent_learning.module_04_tool_schema.argument_models
 
 说明：
     先完成 TODO 1，再运行测试；然后完成 TODO 2，再次运行测试。

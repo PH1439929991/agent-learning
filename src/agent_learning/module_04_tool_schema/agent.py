@@ -6,22 +6,34 @@
 3. 把第二个工具加入注册表，让模型在两个工具之间路由。
 
 运行方式：
-    .venv/bin/python src/agent_learning/multi_tool_agent.py
+    .venv/bin/python src/agent_learning/module_04_tool_schema/agent.py
+    或按模块运行：
+    PYTHONPATH=src .venv/bin/python -m agent_learning.module_04_tool_schema.agent
 """
 
 import json
+import sys
 from pathlib import Path
 from typing import Any, Callable
 
-from LLM_client import LLMClient
-from champions_tools import get_champion_info
-from champions_tools import list_champions
-from pydantic_tool_validation_exercise import (
+# 直接运行本文件时，将 src 加入搜索路径，让 Python 能找到 agent_learning 包。
+# 使用 python -m 启动或被其他模块导入时，无需修改搜索路径。
+if __name__ == "__main__" and not __package__:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from pydantic import ValidationError
+
+from agent_learning.common.llm_client import LLMClient
+from agent_learning.module_03_function_calling.champion_tools import (
+    get_champion_info,
+    list_champions,
+)
+from agent_learning.module_04_tool_schema.argument_models import (
     GetChampionInfoArguments,
     ListChampionsArguments,
 )
+from agent_learning.module_04_tool_schema.schema_builder import build_all_tool_schemas, build_tool_schema
 
-DATA_FILE_PATH = Path(__file__).parent / "data" / "champions.json"
 
 
 SYSTEM_PROMPT = """
@@ -44,48 +56,7 @@ SYSTEM_PROMPT = """
 """.strip()
 
 
-TOOLS = [
-    {
-        "type": "function",
-        "function": {
-            "name": "get_champion_info",
-            "description": "根据中文名、英文名或称号查询某个英雄的背景资料。",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "champion_name": {
-                        "type": "string",
-                        "description": "英雄中文名、英文名或称号，例如亚索、Yasuo、疾风剑豪。",
-                    }
-                },
-                "required": ["champion_name"],
-                "additionalProperties": False,
-            },
-        },
-    },
-    # TODO 2：在这里添加 list_champions 的工具 schema。
-    #
-    # 它可以接收一个可选的 region 字符串参数。
-    # 注意：region 是可选参数，所以不要把它放进 required。
-    {
-        "type": "function",
-        "function": {
-            "name": "list_champions",
-            "description": "列出资料库中的英雄；传入 region 时，只返回该地区的英雄。",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "region": {
-                        "type": "string",
-                        "description": "英雄所属地区，例如艾欧尼亚、诺克萨斯、德玛西亚等。",
-                    }
-                },
-                "required": [],
-                "additionalProperties": False,
-            },
-        },
-    },
-]
+TOOLS = []
 
 
 ToolFunction = Callable[..., dict]
@@ -93,15 +64,24 @@ ToolFunction = Callable[..., dict]
 TOOL_REGISTRY: dict[str, dict[str, Any]] = {
     "get_champion_info":{
         "function": get_champion_info,
+        "description": "根据中文名、英文名或称号查询某个英雄的背景资料。",
         "arguments_model": GetChampionInfoArguments,
     } ,
-    # TODO 3：把 list_champions 注册到这里。
     "list_champions": {
         "function": list_champions,
+        "description": "列出资料库中的英雄；传入 region 时，只返回该地区的英雄。",
         "arguments_model": ListChampionsArguments,
     }
 }
 
+for name, config in TOOL_REGISTRY.items():
+    TOOLS.append(
+        build_tool_schema(
+            name,
+            config["description"],
+            config["arguments_model"],
+        )
+    )
 
 def execute_tool_call(tool_call: Any) -> dict:
     """解析模型生成的参数，并执行注册表中的对应函数。"""
@@ -115,22 +95,41 @@ def execute_tool_call(tool_call: Any) -> dict:
             "message": f"工具参数不是合法 JSON：{error}",
         }
 
-    function = TOOL_REGISTRY.get(function_name)
-    if function is None:
+    tool_config = TOOL_REGISTRY.get(function_name)
+    if tool_config is None:
         return {
             "success": False,
             "message": f"未注册的工具：{function_name}",
         }
 
     try:
-        Tool = function["function"]
-        arguments_model = function["arguments_model"]
+        arguments_model = tool_config["arguments_model"]
         validated_arguments = arguments_model.model_validate(arguments)
-        return Tool(**validated_arguments.model_dump())
+    except ValidationError as error:
+        return {
+            "success": False,
+            "error_type": "validation_error",
+            "message": "工具参数校验失败",
+            "details": [
+                {
+                    "field": ".".join(
+                        str(item) for item in detail["loc"]
+                    ),
+                    "message": detail["msg"],
+                    "type": detail["type"],
+                }
+                for detail in error.errors()
+            ],
+        }
 
+    tool_function = tool_config["function"]
+
+    try:
+        return tool_function(**validated_arguments.model_dump())
     except TypeError as error:
         return {
             "success": False,
+            "error_type": "tool_argument_error",
             "message": f"工具参数不匹配：{error}",
         }
 
@@ -142,6 +141,8 @@ def ask_agent(question: str, max_tool_rounds: int = 5) -> str:
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": question},
     ]
+
+
 
     for _ in range(max_tool_rounds):
         response = llm.client.chat.completions.create(
