@@ -4,13 +4,13 @@
 
 ## 当前学到哪里
 
-**当前模块：模块六，日志与可观测性。**
+**当前模块：模块七，Agent 可靠性。**
 
-模块五已完成 10 个离线测试。现在从 [logging_basics.py](src/agent_learning/module_06_observability/logging_basics.py) 开始学习日志级别和统一格式，详细说明见[模块六](src/agent_learning/module_06_observability/README.md)。
+模块六已完成日志、异常、耗时、request_id 和累计 Token 指标。现在从 [retry_basics.py](src/agent_learning/module_07_reliability/retry_basics.py) 开始学习有限重试，详细说明见[模块七](src/agent_learning/module_07_reliability/README.md)。
 
 | 想改的内容 | 打开哪个文件 |
 | --- | --- |
-| 当前日志基础练习 | [logging_basics.py](src/agent_learning/module_06_observability/logging_basics.py) |
+| 当前有限重试练习 | [retry_basics.py](src/agent_learning/module_07_reliability/retry_basics.py) |
 | 已完成的自动化测试 | [module_05_testing](src/agent_learning/module_05_testing/) |
 | 工具参数类型、必填规则、默认值 | [argument_models.py](src/agent_learning/module_04_tool_schema/argument_models.py) |
 | 将参数模型转换成工具说明 | [schema_builder.py](src/agent_learning/module_04_tool_schema/schema_builder.py) |
@@ -44,8 +44,10 @@ src/agent_learning/
 ├── module_05_testing/                # 模块五：自动化测试（已完成）
 │   ├── test_tool_executor.py
 │   └── test_agent_*.py
-├── module_06_observability/          # 模块六：当前学习模块
-│   └── logging_basics.py             # 日志基础练习
+├── module_06_observability/          # 模块六：日志与可观测性（已完成）
+│   └── request_metrics.py            # 整次 Agent 请求累计指标
+├── module_07_reliability/            # 模块七：当前学习模块
+│   └── retry_basics.py               # 有限重试练习
 ├── data/
 │   ├── champions.json
 │   └── regions.json
