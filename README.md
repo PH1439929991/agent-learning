@@ -4,13 +4,14 @@
 
 ## 当前学到哪里
 
-**当前模块：模块五，自动化测试。**
+**当前模块：模块六，日志与可观测性。**
 
-已完成 [module_05_testing/test_tool_executor.py](src/agent_learning/module_05_testing/test_tool_executor.py) 的四个离线测试。今晚的复习笔记见[自动化测试学习总结](work/2026-09-07-自动化测试学习总结.md)，下一步补充非法 JSON 和 Agent 循环测试。详细说明见[模块五](src/agent_learning/module_05_testing/README.md)。
+模块五已完成 10 个离线测试。现在从 [logging_basics.py](src/agent_learning/module_06_observability/logging_basics.py) 开始学习日志级别和统一格式，详细说明见[模块六](src/agent_learning/module_06_observability/README.md)。
 
 | 想改的内容 | 打开哪个文件 |
 | --- | --- |
-| 当前自动化测试练习 | [test_tool_executor.py](src/agent_learning/module_05_testing/test_tool_executor.py) |
+| 当前日志基础练习 | [logging_basics.py](src/agent_learning/module_06_observability/logging_basics.py) |
+| 已完成的自动化测试 | [module_05_testing](src/agent_learning/module_05_testing/) |
 | 工具参数类型、必填规则、默认值 | [argument_models.py](src/agent_learning/module_04_tool_schema/argument_models.py) |
 | 将参数模型转换成工具说明 | [schema_builder.py](src/agent_learning/module_04_tool_schema/schema_builder.py) |
 | 工具注册、模型请求、校验错误反馈、Agent 循环 | [agent.py](src/agent_learning/module_04_tool_schema/agent.py) |
@@ -40,8 +41,11 @@ src/agent_learning/
 │   ├── argument_models.py           # 参数模型 + 离线练习
 │   ├── schema_builder.py            # schema 生成 + 离线检查
 │   └── agent.py                     # 当前多工具集成入口
-├── module_05_testing/                # 模块五：当前学习模块
-│   └── test_tool_executor.py         # 四个已完成的离线测试
+├── module_05_testing/                # 模块五：自动化测试（已完成）
+│   ├── test_tool_executor.py
+│   └── test_agent_*.py
+├── module_06_observability/          # 模块六：当前学习模块
+│   └── logging_basics.py             # 日志基础练习
 ├── data/
 │   ├── champions.json
 │   └── regions.json

@@ -1,10 +1,17 @@
-"""两个测试示例和两个已完成的练习。
+"""五个已完成的工具执行器测试。
 
 在项目根目录运行：
     PYTHONPATH=src .venv/bin/python -m pytest src/agent_learning/module_05_testing -v
 
 pytest 自动寻找 test_ 开头的函数；无需手动调用它们。
 本文件使用本地工具，不调用模型 API。
+
+执行工具前有两道检查：JSON 解析 → Pydantic 参数校验。
+- JSON 少了右花括号：解析失败，不执行工具，calls 为 []。
+- champion_name=""：JSON 合法，但不满足 min_length=1，不执行工具。
+- champion_name="亚索"：两道检查通过，才能执行工具。
+- region=""：地区参数允许空字符串，表示查询全部英雄，可以执行工具。
+calls 不会自动记录；只有替身工具执行 calls.append(arguments) 才会增加记录。
 """
 
 import json
@@ -104,3 +111,36 @@ def test_unknown_tool_returns_failure():
 
     assert result["success"] is False
     assert "unknown_tool" in result["message"]
+
+
+def test_invalid_json_returns_failure(monkeypatch):
+    """练习三：非法 JSON 应在解析阶段被拦截。"""
+    calls = []
+
+    def recording_tool(**arguments):
+        # 访问外层的同一个列表；每执行一次，就追加一条参数记录。
+        # 这里只是定义函数，还没有执行，calls 仍然为空。
+        calls.append(arguments)
+        return {"success": True}
+
+    # 临时把注册表中的真实工具换成记录员，测试结束后自动恢复。
+    # 替换的是字典里的 function，不是工具调用对象的 arguments 属性。
+    monkeypatch.setitem(
+        TOOL_REGISTRY["get_champion_info"], "function", recording_tool
+    )
+
+    tool_call = make_call(
+        "get_champion_info",
+        {"champion_name": "亚索"},
+    )
+
+    # make_call 会生成合法 JSON，所以在这里故意改成缺少右花括号的字符串。
+    tool_call.function.arguments = '{"champion_name": "亚索"'
+
+    result = execute_tool_call(tool_call)
+
+    assert result["success"] is False
+    assert "工具参数不是合法 JSON" in result["message"]
+    # JSON 解析已经失败，尚未进入 Pydantic 校验，更不会调用替身工具。
+    # 没有执行 append，列表就保持为空。
+    assert calls == [], "JSON 解析失败时，不应该调用工具函数"
