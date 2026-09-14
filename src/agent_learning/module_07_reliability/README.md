@@ -120,3 +120,28 @@ PYTHONPATH=src .venv/bin/python -m agent_learning.module_07_reliability.error_po
 ```
 
 示例中的第一次调用抛出临时工具错误，第二次成功，因此最终调用次数应为 `2`。对于不允许重试的异常，即使 `max_attempts=3`，也应该只调用一次。
+
+## 第六节：可靠模型调用综合练习
+
+学习文件：[resilient_model_call.py](resilient_model_call.py)。
+
+这一节把前面学过的能力组合起来：
+
+```text
+请求级 timeout
+  -> 捕获异常
+  -> should_retry 分类
+  -> 最大尝试次数
+  -> 指数退避
+  -> max_delay 上限
+  -> full jitter
+  -> 再次请求或抛出原异常
+```
+
+完成四个 TODO 后运行：
+
+```bash
+PYTHONPATH=src .venv/bin/python -m agent_learning.module_07_reliability.resilient_model_call
+```
+
+SDK 内部重试保持关闭，由这个函数统一管理重试。后续测试会注入假客户端、假 jitter 和假 sleep，同时验证成功、临时错误恢复、次数耗尽和不可重试错误四条路径。

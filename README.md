@@ -4,13 +4,18 @@
 
 ## 当前学到哪里
 
-**当前模块：模块七，Agent 可靠性。**
+**当前模块：模块八，RAG。**
 
-模块六已完成日志、异常、耗时、request_id 和累计 Token 指标。现在从 [retry_basics.py](src/agent_learning/module_07_reliability/retry_basics.py) 开始学习有限重试，详细说明见[模块七](src/agent_learning/module_07_reliability/README.md)。
+模块七已完成可靠模型调用综合练习。模块八已完成切分、相邻片段扩展和余弦相似度，现在学习 [real_embeddings.py](src/agent_learning/module_08_rag/real_embeddings.py) 中的真实 Embedding 接口调用，详细说明见[模块八](src/agent_learning/module_08_rag/README.md)。
 
 | 想改的内容 | 打开哪个文件 |
 | --- | --- |
-| 当前有限重试练习 | [retry_basics.py](src/agent_learning/module_07_reliability/retry_basics.py) |
+| 当前 RAG 真实 Embedding 练习 | [real_embeddings.py](src/agent_learning/module_08_rag/real_embeddings.py) |
+| 已完成的向量相似度 | [embedding_basics.py](src/agent_learning/module_08_rag/embedding_basics.py) |
+| 已完成的相邻片段扩展 | [neighbor_expansion.py](src/agent_learning/module_08_rag/neighbor_expansion.py) |
+| 已完成的重叠切分 | [overlapping_chunking.py](src/agent_learning/module_08_rag/overlapping_chunking.py) |
+| 已完成的固定长度切片 | [document_chunking.py](src/agent_learning/module_08_rag/document_chunking.py) |
+| 可靠模型调用综合练习 | [resilient_model_call.py](src/agent_learning/module_07_reliability/resilient_model_call.py) |
 | 已完成的自动化测试 | [module_05_testing](src/agent_learning/module_05_testing/) |
 | 工具参数类型、必填规则、默认值 | [argument_models.py](src/agent_learning/module_04_tool_schema/argument_models.py) |
 | 将参数模型转换成工具说明 | [schema_builder.py](src/agent_learning/module_04_tool_schema/schema_builder.py) |
@@ -46,8 +51,14 @@ src/agent_learning/
 │   └── test_agent_*.py
 ├── module_06_observability/          # 模块六：日志与可观测性（已完成）
 │   └── request_metrics.py            # 整次 Agent 请求累计指标
-├── module_07_reliability/            # 模块七：当前学习模块
-│   └── retry_basics.py               # 有限重试练习
+├── module_07_reliability/            # 模块七：可靠性基础
+│   └── resilient_model_call.py       # 可靠模型调用综合练习
+├── module_08_rag/                    # 模块八：当前学习模块
+│   ├── document_chunking.py          # 文档读取与固定长度切片（已完成）
+│   ├── overlapping_chunking.py       # 重叠切分（已完成）
+│   ├── neighbor_expansion.py         # 相邻片段扩展（已完成）
+│   ├── embedding_basics.py           # 向量相似度（已完成）
+│   └── real_embeddings.py            # 真实 Embedding 接口（当前练习）
 ├── data/
 │   ├── champions.json
 │   └── regions.json
@@ -73,7 +84,13 @@ python3.12 -m venv .venv
 
 我们统一使用 `PYTHONPATH=src` 和 `python -m` 运行：前者告诉 Python 从哪里找项目包，后者按照模块路径启动文件，保证跨目录导入正确。模块路径使用点号，不带 `.py`。
 
-当前模块的离线测试（首次需要安装开发依赖）：
+当前 RAG 练习（默认只显示说明；完成 TODO 和 EMBEDDING_* 配置后加 --live，正常完成会发 3 次可能计费的请求）：
+
+```bash
+PYTHONPATH=src .venv/bin/python -m agent_learning.module_08_rag.real_embeddings
+```
+
+模块五的离线测试（首次需要安装开发依赖）：
 
 ```bash
 .venv/bin/python -m pip install -r requirements-dev.txt

@@ -19,13 +19,19 @@ logger = logging.getLogger(__name__)
 # TODO 1：把可以重试的异常类型放进这个元组。
 # 包括 APITimeoutError、APIConnectionError、RateLimitError、
 # InternalServerError 和 TemporaryToolError。
-RETRYABLE_ERRORS: tuple[type[Exception], ...] = ()
+RETRYABLE_ERRORS: tuple[type[Exception], ...] = (
+    APITimeoutError,
+    APIConnectionError,
+    RateLimitError,
+    InternalServerError,
+    TemporaryToolError,
+)
 
 
 def should_retry(error: Exception) -> bool:
     """如果异常属于临时性故障，返回 True。"""
     # TODO 2：使用 isinstance(error, RETRYABLE_ERRORS) 完成判断。
-    return False
+    return isinstance(error, RETRYABLE_ERRORS)
 
 
 def execute_with_error_policy(operation, max_attempts: int = 3):
@@ -39,7 +45,16 @@ def execute_with_error_policy(operation, max_attempts: int = 3):
         except Exception as error:
             # TODO 3：如果 should_retry(error) 为 False，
             # 记录“不可重试”日志，然后使用 raise 立即失败。
-
+            if not should_retry(error):
+                logger.error(
+                    "发生不可重试错误 | attempt=%s/%s "
+                    "| error_type=%s | error=%s",
+                    attempt,
+                    max_attempts,
+                    type(error).__name__,
+                    error,
+                )
+                raise
             logger.warning(
                 "发生可重试错误 | attempt=%s/%s | error_type=%s | error=%s",
                 attempt,
