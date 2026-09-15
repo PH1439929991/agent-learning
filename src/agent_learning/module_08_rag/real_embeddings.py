@@ -49,15 +49,16 @@ def embed_text(client: OpenAI, model: str, text: str) -> list[float]:
     if not text.strip():
         raise ValueError("待编码文本不能为空或全是空白")
 
-    raise NotImplementedError("请完成 embed_text 的两个 TODO")
-
     # TODO 1：调用 client.embeddings.create(...)，用 response 接收返回值。
     # 传入 model=model、input=text、encoding_format="float"。
     # model 是模型名称，input 是正文，float 表示返回浮点数格式的向量。
-
+    response = client.embeddings.create(
+        model=model, input=text, encoding_format="float"
+    )
     # TODO 2：返回 response.data[0].embedding。
     # data 是结果列表；本次只传一段文本，所以取第 0 项中的 embedding。
     # 例如 [0.012, -0.034, ...]；真实维度和数字由模型决定，不要手填。
+    return response.data[0].embedding
 
 
 def run_comparison(client: OpenAI, model: str) -> None:

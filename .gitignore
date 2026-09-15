@@ -6,3 +6,6 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# 本地生成的学习用向量索引（包含正文和向量，不提交 Git）。
+/work/rag_index*.json

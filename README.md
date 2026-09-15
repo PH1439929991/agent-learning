@@ -2,15 +2,27 @@
 
 学习代码按模块分目录；历史学习总结保留在 `work/`。
 
+最近两次 RAG 学习的逐节总结、测试状态和换电脑续学步骤见 [RAG 学习总结](work/RAG学习总结/README.md)。第十节保留 TODO，回家从这里继续。
+
 ## 当前学到哪里
 
 **当前模块：模块八，RAG。**
 
-模块七已完成可靠模型调用综合练习。模块八已完成切分、相邻片段扩展和余弦相似度，现在学习 [real_embeddings.py](src/agent_learning/module_08_rag/real_embeddings.py) 中的真实 Embedding 接口调用，详细说明见[模块八](src/agent_learning/module_08_rag/README.md)。
+模块八已完成消息组装和引用编号校验，已有 42 个离线测试通过，真实回答尚未验证。现在学习 [checked_rag_answer.py](src/agent_learning/module_08_rag/checked_rag_answer.py)：连接生成与引用检查，返回原始回答和报告。只实现 `answer_with_citation_check()` 的三个 TODO，详细说明见[模块八第十节](src/agent_learning/module_08_rag/README.md)。
 
 | 想改的内容 | 打开哪个文件 |
 | --- | --- |
-| 当前 RAG 真实 Embedding 练习 | [real_embeddings.py](src/agent_learning/module_08_rag/real_embeddings.py) |
+| 当前生成与引用检查集成练习 | [checked_rag_answer.py](src/agent_learning/module_08_rag/checked_rag_answer.py) |
+| 集成练习离线检查用例 | [test_checked_rag_answer.py](src/agent_learning/module_08_rag/test_checked_rag_answer.py) |
+| 已完成的引用编号校验 | [citation_checks.py](src/agent_learning/module_08_rag/citation_checks.py) |
+| 引用编号离线检查用例 | [test_citation_checks.py](src/agent_learning/module_08_rag/test_citation_checks.py) |
+| 已完成的带资料消息组装 | [rag_answering.py](src/agent_learning/module_08_rag/rag_answering.py) |
+| 带资料回答离线检查用例 | [test_rag_answering.py](src/agent_learning/module_08_rag/test_rag_answering.py) |
+| 已完成的索引保存与复用 | [index_persistence.py](src/agent_learning/module_08_rag/index_persistence.py) |
+| 索引文件离线检查用例 | [test_index_persistence.py](src/agent_learning/module_08_rag/test_index_persistence.py) |
+| 已完成的 Top-K 检索代码 | [top_k_retrieval.py](src/agent_learning/module_08_rag/top_k_retrieval.py) |
+| Top-K 离线检查用例 | [test_top_k_retrieval.py](src/agent_learning/module_08_rag/test_top_k_retrieval.py) |
+| 已完成的真实 Embedding | [real_embeddings.py](src/agent_learning/module_08_rag/real_embeddings.py) |
 | 已完成的向量相似度 | [embedding_basics.py](src/agent_learning/module_08_rag/embedding_basics.py) |
 | 已完成的相邻片段扩展 | [neighbor_expansion.py](src/agent_learning/module_08_rag/neighbor_expansion.py) |
 | 已完成的重叠切分 | [overlapping_chunking.py](src/agent_learning/module_08_rag/overlapping_chunking.py) |
@@ -58,7 +70,17 @@ src/agent_learning/
 │   ├── overlapping_chunking.py       # 重叠切分（已完成）
 │   ├── neighbor_expansion.py         # 相邻片段扩展（已完成）
 │   ├── embedding_basics.py           # 向量相似度（已完成）
-│   └── real_embeddings.py            # 真实 Embedding 接口（当前练习）
+│   ├── real_embeddings.py            # 真实 Embedding 接口（已完成）
+│   ├── top_k_retrieval.py            # Top-K 检索（代码已完成）
+│   ├── test_top_k_retrieval.py       # Top-K 离线测试
+│   ├── index_persistence.py         # 索引保存与复用（已完成）
+│   ├── test_index_persistence.py    # 保存与复用离线测试
+│   ├── rag_answering.py             # 带资料消息组装（离线测试已通过）
+│   ├── test_rag_answering.py        # 消息组装与生成离线测试
+│   ├── citation_checks.py           # 引用编号校验（已完成）
+│   ├── test_citation_checks.py      # 引用编号离线测试
+│   ├── checked_rag_answer.py        # 生成与检查集成（当前练习）
+│   └── test_checked_rag_answer.py   # 集成离线测试
 ├── data/
 │   ├── champions.json
 │   └── regions.json
@@ -84,10 +106,10 @@ python3.12 -m venv .venv
 
 我们统一使用 `PYTHONPATH=src` 和 `python -m` 运行：前者告诉 Python 从哪里找项目包，后者按照模块路径启动文件，保证跨目录导入正确。模块路径使用点号，不带 `.py`。
 
-当前 RAG 练习（默认只显示说明；完成 TODO 和 EMBEDDING_* 配置后加 --live，正常完成会发 3 次可能计费的请求）：
+当前 RAG 练习（纯离线；完成 TODO 后展示检查结果）：
 
 ```bash
-PYTHONPATH=src .venv/bin/python -m agent_learning.module_08_rag.real_embeddings
+PYTHONPATH=src .venv/bin/python -m agent_learning.module_08_rag.checked_rag_answer
 ```
 
 模块五的离线测试（首次需要安装开发依赖）：
