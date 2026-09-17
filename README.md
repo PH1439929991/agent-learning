@@ -2,17 +2,30 @@
 
 学习代码按模块分目录；历史学习总结保留在 `work/`。
 
-最近两次 RAG 学习的逐节总结、测试状态和换电脑续学步骤见 [RAG 学习总结](work/RAG学习总结/README.md)。第十节保留 TODO，回家从这里继续。
+RAG 学习的逐节总结、测试状态和换电脑续学步骤见 [RAG 学习总结](work/RAG学习总结/README.md)。
+
+**先看整章：[第八章总览与顺序关联](work/RAG学习总结/00-第八章总览与顺序关联.md)**。包含概念图、各节输入输出、执行顺序和第 17 节综合题。
 
 ## 当前学到哪里
 
 **当前模块：模块八，RAG。**
 
-模块八已完成消息组装和引用编号校验，已有 42 个离线测试通过，真实回答尚未验证。现在学习 [checked_rag_answer.py](src/agent_learning/module_08_rag/checked_rag_answer.py)：连接生成与引用检查，返回原始回答和报告。只实现 `answer_with_citation_check()` 的三个 TODO，详细说明见[模块八第十节](src/agent_learning/module_08_rag/README.md)。
+第八章基础练习已收尾：[第十八节检索工具与真实验收](work/RAG学习总结/18-把检索接成Agent工具.md) 已完成一次模型选工具、检索资料、模型回答的真实问答。第八章 140 个离线测试通过（排除第十节本机旧文件），连同第五章共 150 个通过。第十节按你反馈已在家完成，本机尚未同步，不重复修改。单次验收不等于生产就绪。
 
 | 想改的内容 | 打开哪个文件 |
 | --- | --- |
-| 当前生成与引用检查集成练习 | [checked_rag_answer.py](src/agent_learning/module_08_rag/checked_rag_answer.py) |
+| 已完成的第十八节检索工具 | [rag_search_tool.py](src/agent_learning/module_08_rag/rag_search_tool.py) |
+| 第十八节单次真实 Agent 验收 | [rag_agent_live.py](src/agent_learning/module_08_rag/rag_agent_live.py) |
+| 当前真实验收与结果 | [rag_live_acceptance.py](src/agent_learning/module_08_rag/rag_live_acceptance.py)、[学习文档](work/RAG学习总结/17-完整RAG与真实验收.md) |
+| 当前完整问答综合题 | [rag_pipeline.py](src/agent_learning/module_08_rag/rag_pipeline.py) |
+| 已完成的上下文预算 | [context_budget.py](src/agent_learning/module_08_rag/context_budget.py) |
+| 已完成的多命中扩展与去重 | [context_expansion.py](src/agent_learning/module_08_rag/context_expansion.py) |
+| 已完成的不同 K 对比 | [retrieval_k_comparison.py](src/agent_learning/module_08_rag/retrieval_k_comparison.py) |
+| 已完成的检索结果收集 | [retrieval_benchmark.py](src/agent_learning/module_08_rag/retrieval_benchmark.py) |
+| 真实检索评测学习文档 | [13-固定问题集与真实检索.md](work/RAG学习总结/13-固定问题集与真实检索.md) |
+| 已完成的多题汇总 | [retrieval_evaluation.py](src/agent_learning/module_08_rag/retrieval_evaluation.py) |
+| 多题汇总学习文档 | [12-多题检索评测汇总.md](work/RAG学习总结/12-多题检索评测汇总.md) |
+| 上一节生成与引用检查（本机待同步） | [checked_rag_answer.py](src/agent_learning/module_08_rag/checked_rag_answer.py) |
 | 集成练习离线检查用例 | [test_checked_rag_answer.py](src/agent_learning/module_08_rag/test_checked_rag_answer.py) |
 | 已完成的引用编号校验 | [citation_checks.py](src/agent_learning/module_08_rag/citation_checks.py) |
 | 引用编号离线检查用例 | [test_citation_checks.py](src/agent_learning/module_08_rag/test_citation_checks.py) |
@@ -106,10 +119,10 @@ python3.12 -m venv .venv
 
 我们统一使用 `PYTHONPATH=src` 和 `python -m` 运行：前者告诉 Python 从哪里找项目包，后者按照模块路径启动文件，保证跨目录导入正确。模块路径使用点号，不带 `.py`。
 
-当前 RAG 练习（纯离线；完成 TODO 后展示检查结果）：
+当前 RAG 综合题（纯离线；完成 TODO 后展示实际发送给假生成器的消息与完整报告）：
 
 ```bash
-PYTHONPATH=src .venv/bin/python -m agent_learning.module_08_rag.checked_rag_answer
+PYTHONPATH=src .venv/bin/python -m agent_learning.module_08_rag.rag_pipeline
 ```
 
 模块五的离线测试（首次需要安装开发依赖）：
