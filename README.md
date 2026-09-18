@@ -8,12 +8,18 @@ RAG 学习的逐节总结、测试状态和换电脑续学步骤见 [RAG 学习�
 
 ## 当前学到哪里
 
-**当前模块：模块八，RAG。**
+**当前模块：模块九，多轮 Agent 的会话状态。**
+
+第九章前两节已完成，共 29 个测试通过。当前读 [第三节 A：工具消息配对检查](src/agent_learning/module_09_sessions/03-工具消息配对检查.md)，只填写 `tool_message_pairs.py` 的三个 TODO，先离线检查调用与结果是否配齐，不调用模型。完成后再接入保存前校验和完整轮次裁剪。
 
 第八章基础练习已收尾：[第十八节检索工具与真实验收](work/RAG学习总结/18-把检索接成Agent工具.md) 已完成一次模型选工具、检索资料、模型回答的真实问答。第八章 140 个离线测试通过（排除第十节本机旧文件），连同第五章共 150 个通过。第十节按你反馈已在家完成，本机尚未同步，不重复修改。单次验收不等于生产就绪。
 
 | 想改的内容 | 打开哪个文件 |
 | --- | --- |
+| 当前第九章第三节 A：工具消息配对 | [tool_message_pairs.py](src/agent_learning/module_09_sessions/tool_message_pairs.py) |
+| 已完成的连续追问与提交 | [session_turn.py](src/agent_learning/module_09_sessions/session_turn.py) |
+| 已完成的会话历史存取 | [session_store.py](src/agent_learning/module_09_sessions/session_store.py) |
+| 第九章学习说明和运行命令 | [模块九 README](src/agent_learning/module_09_sessions/README.md) |
 | 已完成的第十八节检索工具 | [rag_search_tool.py](src/agent_learning/module_08_rag/rag_search_tool.py) |
 | 第十八节单次真实 Agent 验收 | [rag_agent_live.py](src/agent_learning/module_08_rag/rag_agent_live.py) |
 | 当前真实验收与结果 | [rag_live_acceptance.py](src/agent_learning/module_08_rag/rag_live_acceptance.py)、[学习文档](work/RAG学习总结/17-完整RAG与真实验收.md) |
